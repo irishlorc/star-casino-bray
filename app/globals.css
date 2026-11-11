@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0b0d;
+  --color-coal: #151518;
+  --color-surface: #1c1c20;
+  --color-gold: #d9ae62;
+  --color-gold-warm: #f0cb86;
+  --color-paper: #f7f5f0;
+  --color-mute: #a8a6a2;
+  --color-line: rgb(247 245 240 / 0.12);
+
+  --font-display: "Playfair Display Variable", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Hanken Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: clip;
+  }
+  section[id],
+  main[id] {
+    scroll-margin-top: 5rem;
+  }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-warm);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    font-optical-sizing: auto;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* One measure for the whole page so every section shares the same edges. */
+  .shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4.5vw, 4.5rem);
+  }
+  .band {
+    padding-block: clamp(3rem, 5.5vw, 5rem);
+  }
+
+  /* Type scale: 13 / 17 / 20 / 26 / h2 / h1 */
+  .h1 {
+    font-size: clamp(2.6rem, 5vw, 4.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+  }
+  .h2 {
+    font-size: clamp(2rem, 3.4vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: -0.012em;
+  }
+  .h3 {
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+  .lede {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: rgb(247 245 240 / 0.78);
+    max-width: 30rem;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  .eyebrow::after {
+    content: "";
+    width: 3.5rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.7;
+  }
+
+  /* Pill buttons: brushed-gold fill for primary, gold outline for secondary. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3rem;
+    padding: 0 1.6rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: 999px;
+    transition:
+      transform 0.5s var(--ease-lux),
+      box-shadow 0.5s var(--ease-lux),
+      background-color 0.4s,
+      color 0.4s,
+      border-color 0.4s;
+  }
+  .btn svg {
+    transition: transform 0.5s var(--ease-lux);
+  }
+  .btn:hover svg {
+    transform: translateX(4px);
+  }
+  .btn-gold {
+    color: #17130a;
+    background: linear-gradient(180deg, #f3d291 0%, #d9ae62 55%, #c2974c 100%);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.45),
+      0 10px 30px -12px rgb(217 174 98 / 0.55);
+  }
+  .btn-gold:hover,
+  .btn-gold:focus-visible {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.55),
+      0 18px 40px -12px rgb(217 174 98 / 0.75);
+  }
+  .btn-line {
+    color: var(--color-paper);
+    border: 1px solid rgb(217 174 98 / 0.7);
+    background: rgb(11 11 13 / 0.35);
+  }
+  .btn-line:hover,
+  .btn-line:focus-visible {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    color: #17130a;
+  }
+
+  /* Rounded, softly lit surface used for cards and feature panels. */
+  .panel {
+    border-radius: 0.875rem;
+    border: 1px solid rgb(247 245 240 / 0.1);
+    background: linear-gradient(180deg, rgb(28 28 32 / 0.92), rgb(17 17 20 / 0.92));
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+  }
+
+  .link-underline {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size 0.5s var(--ease-lux), color 0.3s;
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Venue photos are shot bright; this pulls them into the site's night-time register. */
+  .grade {
+    filter: brightness(0.72) contrast(1.12) saturate(1.08);
+  }
+  .grade-deep {
+    filter: brightness(0.74) contrast(1.12) saturate(1.06);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+@keyframes sheen {
+  0%,
+  55% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  85%,
+  100% {
+    transform: translateX(230%) skewX(-18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
