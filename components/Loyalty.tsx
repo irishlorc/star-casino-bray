@@ -1,4 +1,4 @@
-import { ArrowRight, Check, HandCoins } from "lucide-react";
+import { Check } from "lucide-react";
 import { MagicCard } from "./MagicCard";
 import { Reveal } from "./Motion";
 
@@ -9,7 +9,7 @@ export function Loyalty({ logo }: { logo: React.ReactNode }) {
     <section id="loyalty" aria-labelledby="loyalty-title" className="band !pt-0">
       <div className="shell">
         <Reveal>
-          <div className="panel relative grid items-center gap-8 overflow-hidden p-6 sm:p-10 lg:grid-cols-[1.05fr_1fr_auto] lg:gap-12 lg:py-8 lg:pl-8 lg:pr-12">
+          <div className="panel relative grid items-center gap-8 overflow-hidden p-6 sm:p-10 lg:grid-cols-2 lg:gap-12 lg:py-8 lg:pl-8 lg:pr-12">
             <div
               aria-hidden
               className="absolute inset-0 bg-[radial-gradient(50%_90%_at_20%_50%,rgb(217_174_98/0.12),transparent_70%)]"
@@ -35,13 +35,6 @@ export function Loyalty({ logo }: { logo: React.ReactNode }) {
               </ul>
             </div>
 
-            <div className="relative flex flex-col items-start gap-5 border-t border-line pt-8 lg:items-center lg:border-l lg:border-t-0 lg:py-6 lg:pl-12 lg:pt-6 lg:text-center">
-              <HandCoins size={44} strokeWidth={1.1} className="hidden text-gold lg:block" aria-hidden />
-              <a href="#promotions" className="btn btn-gold">
-                Discover Magic Pay
-                <ArrowRight size={17} strokeWidth={1.8} aria-hidden />
-              </a>
-            </div>
           </div>
         </Reveal>
       </div>

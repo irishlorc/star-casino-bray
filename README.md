@@ -37,4 +37,4 @@ delete the script and the `predev` / `prebuild` entries in `package.json`.
 - Confirm weekend closing time (see handover note).
 - Port the four policy pages (`site.legal`) into this project; they currently link to the existing site.
 - Add verified social profiles to `site.social` (none are listed on the current site).
-- Give "Discover Magic Pay" and "Explore Our Rewards" real destinations once those pages exist.
+- "Discover Magic Pay" and "Explore Our Rewards" buttons were removed because they had no destination pages. Add them back in `Loyalty.tsx` / `Wheel.tsx` when those pages exist.

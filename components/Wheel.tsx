@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 import { Reveal } from "./Motion";
@@ -42,10 +41,6 @@ export function Wheel() {
               Experience the excitement of Star Casino&rsquo;s Wheel of Fortune, with prizes, rewards and exclusive
               opportunities for eligible loyalty members.
             </p>
-            <a href="#loyalty" className="btn btn-gold mt-7">
-              Explore Our Rewards
-              <ArrowRight size={17} strokeWidth={1.8} aria-hidden />
-            </a>
           </Reveal>
         </div>
       </div>
