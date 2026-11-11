@@ -8,7 +8,6 @@ import path from "node:path";
 
 const BASE = "https://www.starcasinobray.com/wp-content/uploads";
 const assets = {
-  "public/brand/star-casino.svg": `${BASE}/2024/09/star-casino.svg`,
   "public/images/roulette.jpg": `${BASE}/2025/01/sccorrect-nov24-mr-11.jpg`,
   "public/images/floor-aisle.jpg": `${BASE}/2025/01/starcas-nov24-mr-1.jpg`,
   "public/images/floor-aisle-warm.jpg": `${BASE}/2025/01/starcas-nov24-mr-40.jpg`,

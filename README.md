@@ -29,7 +29,7 @@ the site renders before the script has run.
 To hand over final assets, put them in `public/` under the same file names and
 delete the script and the `predev` / `prebuild` entries in `package.json`.
 
-- Logo: `public/brand/star-casino.svg`. Until it exists the name is set in type; the mark is never redrawn in code.
+- Logo: `public/brand/star-casino.svg` is the official file supplied by the client (white, for dark backgrounds).
 - Magic Pay card: `components/MagicCard.tsx` is a typographic stand-in. Replace with the real card artwork.
 
 ## Before launch
