@@ -6,7 +6,7 @@ export function Visit() {
   return (
     <section id="visit" aria-labelledby="visit-title" className="band !pt-0">
       <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
-        <Reveal className="lg:col-span-6">
+        <Reveal className="lg:col-span-7">
           <p className="eyebrow">Plan Your Visit</p>
           <h2 id="visit-title" className="h2 mt-4">
             Find Us in Bray
@@ -16,7 +16,7 @@ export function Visit() {
             parking.
           </p>
 
-          <dl className="mt-9 grid gap-7 text-[0.9375rem] sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-line">
+          <dl className="mt-9 grid gap-7 text-[0.9375rem] sm:grid-cols-[1fr_1.3fr_1fr] sm:gap-0 sm:divide-x sm:divide-line">
             <div className="sm:pr-5">
               <MapPin size={24} strokeWidth={1.4} className="text-gold" aria-hidden />
               <dt className="mt-3 text-xs font-bold uppercase tracking-[0.14em]">Address</dt>
@@ -38,7 +38,7 @@ export function Visit() {
                 <a href={site.phone.href} className="link-underline whitespace-nowrap hover:text-gold-warm">
                   {site.phone.display}
                 </a>
-                <a href={`mailto:${site.email}`} className="link-underline break-all hover:text-gold-warm">
+                <a href={`mailto:${site.email}`} className="link-underline [overflow-wrap:anywhere] hover:text-gold-warm">
                   {site.email}
                 </a>
               </dd>
@@ -60,7 +60,7 @@ export function Visit() {
           </a>
         </Reveal>
 
-        <Unveil delay={0.1} className="relative min-h-[20rem] rounded-[0.875rem] bg-surface lg:col-span-6 lg:min-h-[24rem]">
+        <Unveil delay={0.1} className="relative h-[22rem] rounded-[0.875rem] bg-surface lg:col-span-5 lg:h-[26rem]">
           <iframe
             title="Google Map showing Star Casino on Bray seafront"
             src={site.maps.embed}
